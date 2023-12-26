@@ -9,6 +9,9 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
 from htmlTemplates import css, bot_template, user_template
+from langchain.vectorstores import Pinecone
+import pinecone
+import os
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -30,7 +33,12 @@ def get_text_chunks(raw_text):
 
 def get_vectorestore(text_chunks):
     embeddings = OpenAIEmbeddings()
-    vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
+    pinecone.init(
+        api_key=os.getenv("PINECONE_API_KEY"),
+        environment=os.getenv("PINECONE_API_ENV")
+    )
+    index_name = "converseai"
+    vectorstore = Pinecone.from_texts(texts=text_chunks, embedding=embeddings, index_name=index_name)
     return vectorstore
 
 def get_conversation_chain(vectorstore):
