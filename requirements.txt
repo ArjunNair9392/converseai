@@ -5,3 +5,7 @@ python-dotenv
 faiss-cpu
 openai
 huggingface_hub 
+sentence-transformers
+scikit-learn
+pandasai
+ffmpeg
