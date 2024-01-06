@@ -2,10 +2,22 @@ streamlit
 pypdf2
 langchain
 python-dotenv
-faiss-cpu
 openai
-huggingface_hub 
 sentence-transformers
 scikit-learn
 pandasai
 ffmpeg
+torch
+torchaudio
+torchvision
+tornado
+tokenizers
+tiktoken
+streamlit-chat
+pytube
+pinecone-client
+openai-whisper @ git+https://github.com/openai/whisper.git@ba3f3cd54b0e5b8ce1ab3de13e32122d0d5f98ab
+langsmith
+librosa
+langchain-community
+langchain-core
